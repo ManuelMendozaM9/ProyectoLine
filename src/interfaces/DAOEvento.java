@@ -15,4 +15,5 @@ import projectline.Evento;
 public interface DAOEvento {
     public void registrar(Evento evt) throws Exception;
     public List<Evento> verEventos() throws Exception;
+    public boolean consultaFecha(Evento evt) throws Exception;
 }

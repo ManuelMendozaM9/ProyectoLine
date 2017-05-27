@@ -71,5 +71,27 @@ public class DAOEventoImpl extends Conexion implements DAOEvento {
         }
         return lista;
     }
+
+    @Override
+    public boolean consultaFecha(Evento evt) throws Exception {
+        boolean consulta;
+        try{
+            this.conectar();
+            PreparedStatement st =  this.conexion.prepareStatement("select "
+                + "Evento_fecha from evento where `Evento_fecha` = '?'");
+            st.setString(1, evt.getFecha());
+            ResultSet rs = st.executeQuery();
+            consulta = rs.next();
+        }catch(Exception e){
+            throw e;
+        }finally{
+            this.cerrar();
+        }
+        if(consulta == true){
+            return true;
+        }else{
+            return false;
+        }
+    }
     
 }
