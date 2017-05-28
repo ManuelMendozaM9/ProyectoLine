@@ -1,6 +1,8 @@
 package proyectopoo;
 
 
+import dao.DAOEventoImpl;
+import interfaces.DAOEvento;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -9,6 +11,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import projectline.Evento;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -27,25 +30,18 @@ public class frmVerEventos extends javax.swing.JFrame {
      */
     public frmVerEventos() throws SQLException, ClassNotFoundException {
         initComponents();
-        
-        
+        Evento event = new Evento();
+        DAOEvento dao = new DAOEventoImpl();
         try{
-            Conexion cnn = new Conexion();
-            String consulta = "select * from evento";
-            Conexion.sentencia = cnn.conexion.createStatement();
-            ResultSet rs = Conexion.sentencia.executeQuery(consulta);
-            rs.next();
             DefaultTableModel modelo = (DefaultTableModel) tblEventos.getModel();
-            while(rs.next()){
+            for(Evento ev : dao.verEventos()){
                 Object[] fila = new Object[8];
                 for (int i=0;i < fila.length; i++){
-                    fila[i]=rs.getObject(i+1);
+                    fila[i]=ev.getClass();
                 }
                 modelo.addRow(fila);
             }
             tblEventos.setModel(modelo);
-        }catch(SQLException ex){
-            
         } catch (Exception ex) {
             Logger.getLogger(frmVerEventos.class.getName()).log(Level.SEVERE, null, ex);
         }

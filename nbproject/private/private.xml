@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Manuel/Dropbox/UACH/Diseño%20de%20Software%20de%20Bajo%20Nivel/ProjectLine/src/dao/Conexion.java</file>
-            <file>file:/C:/Users/Manuel/Dropbox/UACH/Diseño%20de%20Software%20de%20Bajo%20Nivel/ProjectLine/src/dao/DAOInventarioImpl.java</file>
-            <file>file:/C:/Users/Manuel/Dropbox/UACH/Diseño%20de%20Software%20de%20Bajo%20Nivel/ProjectLine/src/dao/DAOEventoImpl.java</file>
+            <file>file:/C:/Users/Manuel/Dropbox/UACH/Diseño%20de%20Software%20de%20Bajo%20Nivel/ProjectLine/src/frames/frmEvento.java</file>
+            <file>file:/C:/Users/Manuel/Dropbox/UACH/Diseño%20de%20Software%20de%20Bajo%20Nivel/ProjectLine/src/frames/frmEventoUsu.java</file>
+            <file>file:/C:/Users/Manuel/Dropbox/UACH/Diseño%20de%20Software%20de%20Bajo%20Nivel/ProjectLine/src/frames/frmInventario.java</file>
+            <file>file:/C:/Users/Manuel/Dropbox/UACH/Diseño%20de%20Software%20de%20Bajo%20Nivel/ProjectLine/src/frames/frmVerEventos.java</file>
         </group>
     </open-files>
 </project-private>
