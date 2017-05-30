@@ -6,6 +6,7 @@
 package dao;
 
 import interfaces.DAOEvento;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -21,8 +22,8 @@ public class DAOEventoImpl extends Conexion implements DAOEvento {
     @Override
     public void registrar(Evento evt) throws Exception {
         try{
-            this.conectar();
-            PreparedStatement st = this.conexion.prepareStatement(
+            Connection c = Conexion.getConnection();
+            PreparedStatement st = c.prepareStatement(
             "insert into evento(Evento_nom,Evento_fecha,numPersonas,"
                     + "idEntreten,idAmbi,idArea,costoTotal)"
                     + " values(?,?,?,?,?,?,?)");
@@ -45,8 +46,8 @@ public class DAOEventoImpl extends Conexion implements DAOEvento {
     public List<Evento> verEventos() throws Exception {
        List<Evento> lista = null;
         try{
-            this.conectar();
-            PreparedStatement st = this.conexion.prepareStatement("SELECT * "
+            Connection c = Conexion.getConnection();
+            PreparedStatement st = c.prepareStatement("SELECT * "
                     + "from eventos");
             lista = new ArrayList();
             ResultSet rs = st.executeQuery();
@@ -76,8 +77,8 @@ public class DAOEventoImpl extends Conexion implements DAOEvento {
     public boolean consultaFecha(Evento evt) throws Exception {
         boolean consulta;
         try{
-            this.conectar();
-            PreparedStatement st =  this.conexion.prepareStatement("select "
+            Connection c = Conexion.getConnection();
+            PreparedStatement st =  c.prepareStatement("select "
                 + "Evento_fecha from evento where `Evento_fecha` = '?'");
             st.setString(1, evt.getFecha());
             ResultSet rs = st.executeQuery();

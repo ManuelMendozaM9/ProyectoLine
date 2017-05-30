@@ -204,9 +204,15 @@ public class frmInventario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnEventosVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEventosVerActionPerformed
-        frmVerEventos frm = new frmVerEventos();
-        frm.setTitle("Registro");
-        frm.setVisible(true);
+        try {
+            frmVerEventos frm = new frmVerEventos();
+            frm.setTitle("Registro");
+            frm.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(frmInventario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(frmInventario.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnEventosVerActionPerformed
 
     private void btnModificaMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificaMesasActionPerformed

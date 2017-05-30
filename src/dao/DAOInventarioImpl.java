@@ -6,6 +6,7 @@
 package dao;
 
 import interfaces.DAOInventario;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -23,8 +24,8 @@ public class DAOInventarioImpl extends Conexion implements DAOInventario{
     public List<Inventario> listar() throws Exception {
         List<Inventario> lista = null;
         try{
-            this.conectar();
-            PreparedStatement st = this.conexion.prepareStatement("SELECT * "
+            Connection c = Conexion.getConnection();
+            PreparedStatement st = c.prepareStatement("SELECT * "
                     + "from mobiliario_inventario");
             
             lista = new ArrayList();
@@ -49,8 +50,8 @@ public class DAOInventarioImpl extends Conexion implements DAOInventario{
     @Override
     public void modificarSillas(Inventario inv) throws Exception {
         try{
-            this.conectar();
-            PreparedStatement st = this.conexion.prepareStatement("UPDATE "
+            Connection c = Conexion.getConnection();
+            PreparedStatement st = c.prepareStatement("UPDATE "
                     + "mobiliario_inventario set cantidad = ? where nombre = ?");
             st.setInt(1, inv.getSillas());
             st.setString(2, "Sillas");
@@ -65,8 +66,8 @@ public class DAOInventarioImpl extends Conexion implements DAOInventario{
     @Override
     public void modificarMesas(Inventario inv) throws Exception {
         try{
-            this.conectar();
-            PreparedStatement st = this.conexion.prepareStatement("UPDATE "
+            Connection c = Conexion.getConnection();
+            PreparedStatement st = c.prepareStatement("UPDATE "
                     + "mobiliario_inventario set cantidad = ? where nombre = ?");
             st.setInt(1, inv.getMesas());
             st.setString(2, "Mesas");
@@ -81,8 +82,8 @@ public class DAOInventarioImpl extends Conexion implements DAOInventario{
     @Override
     public void modificarBocinas(Inventario inv) throws Exception {
         try{
-            this.conectar();
-            PreparedStatement st = this.conexion.prepareStatement("UPDATE "
+            Connection c = Conexion.getConnection();
+            PreparedStatement st = c.prepareStatement("UPDATE "
                     + "mobiliario_inventario set cantidad = ? where nombre = ?");
             st.setInt(1, inv.getBocinas());
             st.setString(2, "Bocinas");

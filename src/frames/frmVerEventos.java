@@ -1,4 +1,4 @@
-package proyectopoo;
+package frames;
 
 
 import dao.DAOEventoImpl;
